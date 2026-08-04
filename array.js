@@ -50,12 +50,10 @@ const spliced = arr.splice(3, 2); //start from 3 and after 2 index
 console.log("Spliced elements:", spliced);
 console.log("After splicing:", arr); //original array is modified
 
-
-
 let colors = ["red", "blue", "green", "yellow"];
 
-// Start at -2 (green), delete 1 item (green), and insert "purple"
-colors.splice(-2, 2, "purple","orange") ;
+// Start at -2 (green), delete 2 item (green) insert "purple"
+colors.splice(-2, 2, "purple", "orange");
 
-console.log(colors); 
-// Output: ["red", "blue", "purple", "yellow"]
+console.log(colors);
+// Output: ["red", "blue", "purple", "orange"]
