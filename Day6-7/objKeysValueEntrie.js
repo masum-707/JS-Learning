@@ -7,7 +7,7 @@ const user={
 };
 
 console.log(user.name);
-console.log(user['name']);
+console.log(user["name"]);
 console.log(user.age);
 console.log(user["age"]);
 

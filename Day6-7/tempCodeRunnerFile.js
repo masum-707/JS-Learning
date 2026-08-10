@@ -1,2 +1,1 @@
-
-obj1.getThis = getThis;
+copyUser.userName = "sk")
