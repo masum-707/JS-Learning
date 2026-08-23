@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript HTML DOM</h2>
+<div id ="parent">
+
+<p id="intro">Finding HTML Elements by Id</p>
+<p id="accessMe">This example demonstrates the <b>getElementsById</b> method.</p>
+
+<p id="demo"></p>
+
+<p id="changeMe" class="text">One</p>
+<p class="text">Two</p>
+<p class="text">Three</p>
+
+</div>
+
+<input id="username" type="text">
+
+
+<p>create a new html Elements using script </p>
+<div id="container"></div>
+
+<script>
+    const newElements = document.createElement("p");
+    newElements.textContent="New Element Using Script";
+    newElements.classList.add("somthing");
+    newElements.setAttribute("id","err");
+const container = document.querySelector("#container");
+container.append(newElements);
+
+
+
+const element = document.getElementById("intro");
+const change = document.querySelector("#changeMe");
+change.textContent="One change to 1000";
+document.getElementById("demo").innerHTML = 
+"The text from the intro paragraph is: " + element.innerHTML;
+console.log(document.getElementById("accessMe").innerHTML);
+
+//querySelector() can be access everything ,"#id", ".cssClass","tagName","div divName","ul list"
+// document.querySelector("#title");
+// document.querySelector(".text");
+// document.querySelector("div p");
+// document.querySelector("ul li");
+
+// const p = document.querySelector(".text");//only select first elements unless use querySelectorAll
+// console.log(p.innerHTML);
+
+// const p = document.querySelectorAll(".text");
+// console.log(p[0].innerHTML,p[1].innerHTML,p[2].innerHTML);
+//can be access by using textContent and for of loops 
+// for(text of p){
+//     console.log(text.textContent);
+// }
+// p.forEach((text) => {
+//   console.log(text.textContent);
+// });
+
+
+const target =document.querySelector("#accessMe");
+console.log(target);
+console.log(target.parentElement);
+console.log(target.parentElement.children);
+console.log(target.previousElementSibling);
+console.log(target.nextElementSibling);
+console.log(target.childNodes);
+
+const input = document.querySelector("#username");
+input.addEventListener("input", () => {
+  console.log(input.value);
+});
+
+console.log(input.value);
+
+</script>
+
+</body>
+</html>
