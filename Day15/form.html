@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form validation </title>
+
+    <style>
+        .center-container {
+            display: flex;
+            justify-content: center;
+            /* Centers horizontally */
+            align-items: center;
+            /* Centers vertically */
+            height: 100vh;
+            /* Full viewport height */
+        }
+
+        form {
+            width: 300px;
+            padding: 20px;
+            border: 2px solid #000000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="center-container">
+        <form id="registerForm">
+            <!-- pattern use regex to specify user input type -->
+
+            User Name : <input type="text" pattern="[A-Za-z]+" placeholder="Character Only" id="username" minlength="5"
+                maxlength="8" required><br><br>
+            User Email : <input type="email" id="email"><br><br>
+            <button type="submit">Register</button>
+
+        </form>
+    </div>
+
+
+    <script src="formValidation.js" defer></script>
+</body>
+
+</html>
