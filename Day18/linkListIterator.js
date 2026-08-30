@@ -2,6 +2,7 @@ class Node {
   constructor(value) {
     this.value = value;
     this.next = null;
+    this.pre = null;
   }
 }
 // const node = new Node(20);
@@ -11,6 +12,7 @@ class LinkList {
   constructor() {
     this.head = null;
     this.tail = null;
+    this.pre = null;
   }
   append(value) {
     const newNode = new Node(value);
@@ -20,6 +22,7 @@ class LinkList {
       this.tail = newNode;
     } else {
       this.tail.next = newNode;
+      newNode.pre = this.tail;
       this.tail = newNode;
     }
   }
@@ -48,6 +51,32 @@ class LinkList {
         return {
           value: value,
           done: false,
+        };
+      },
+    };
+  }
+
+  reverse() {
+    let current = this.tail;
+    return {
+      [Symbol.iterator]() {
+        return {
+          next() {
+            if (current === null) {
+              return {
+                value: undefined,
+                done: true,
+              };
+            }
+
+            const value = current.value;
+            current = current.pre;
+
+            return {
+              value,
+              done: false,
+            };
+          },
         };
       },
     };
@@ -84,7 +113,18 @@ console.log(typeof list[Symbol.iterator]);
 // console.log(iterator.next());
 // console.log(iterator.next());
 // console.log(iterator.next());
+//forward
+// for (const value of list) {
+//   console.log(value);
+// }
+// console.log(list);
 
-for (const value of list) {
+//Backward traverse
+// let current = list.tail;
+// while (current !== null) {
+//   console.log(current.value);
+//   current = current.pre;
+// }
+for (const value of list.reverse()) {
   console.log(value);
 }
